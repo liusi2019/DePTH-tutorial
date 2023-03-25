@@ -4,7 +4,7 @@ description: DePTH provides neural network models for sequence-based TCR and HLA
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-minimal
-baseurl: "/DePTH"
+#baseurl: "/DePTH"
 #url: https://liusi2019.github.io/
 
 remote_theme: pages-themes/minimal@v0.2.0
