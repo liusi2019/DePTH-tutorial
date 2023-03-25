@@ -70,6 +70,13 @@ positional arguments:
 optional arguments:
   -h, --help          show this help message and exit
 ```
+Running the command lines below will show more information on the input arguments
+for each option. The information will be explained in more details in sections below.
+```js
+DePTH predict -h
+DePTH train -h
+DePTH cv -h
+```
 ## Get prediction from default models
 
 By default, DePTH provides two sets of models, one for TCR-HLA pairs involving
