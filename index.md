@@ -49,7 +49,7 @@ conda activate DePTH_env
 ```
 Install DePTH package in the activated conda environment:
 ```js
-pip install DePTH
+python -m pip install DePTH
 ```
 Once the installation is finished, can try the following command:
 ```js
