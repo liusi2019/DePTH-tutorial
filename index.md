@@ -105,8 +105,8 @@ the path will be created in the process of running DePTH command lines.
 *   For TCRs, the V gene needs to follow the format of those in
 [V gene file](https://github.com/Sun-lab/DePTH_pipeline/blob/main/data/for_encoders/combo_xcr.tsv)
 after subsetting the data inside the file by organism == 'human', chain == 'B' and region == 'V'.
-For a TCRs with V genes that cannot be found in this file after having their format converted, the part of string corresponding
-to V gene needs to be replaced with string "not_found". 
+For a TCR with V genes that cannot be found in this file after having their format converted, the part of string corresponding
+to V gene needs to be replaced with string "not_found".
 
 *   For TCRs, the length of CDR3 amino acid sequence needs to be not longer
 than 27, and the CDR3 sequence should not contain any character other than
