@@ -6,11 +6,13 @@ layout: default
 
 ## DePTH Tutorial
 
-**Authors:** Si Liu (sliu3@fredhutch.org), Philip Bradley (pbradley@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
+**DePTH 2.0 Authors:** Fumin Li (lifm6@uw.edu), University of Washington, Si Liu (sliu3@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
+
+**DePTH 1.0 Authors:** Si Liu (sliu3@fredhutch.org), Philip Bradley (pbradley@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
 
 **Maintainer:** Si Liu (sliu3@fredhutch.org)
 
-**Latest revision:** 03/24/2023
+**Latest revision:** 01/09/2025
 
 ## Introduction
 
@@ -77,7 +79,12 @@ DePTH predict -h
 DePTH train -h
 DePTH cv -h
 ```
-## Get prediction from default models
+## Get prediction from DePTH 2.0 default models
+
+DePTH default models were updated to DePTH 2.0 on Dec. 27, 2024. The updated
+default models were trained on data sets richer than those used for DePTH 1.0.
+DePTH 1.0 default models are kept as legacy and can be called by command lines
+specified at the end of this tutorial.
 
 By default, DePTH provides two sets of models, one for TCR-HLA pairs involving
 HLA-I alleles, and one for those involving HLA-II alleles, respectively. Each
@@ -153,12 +160,12 @@ The first few lines of the output file test_HLA_I_output/predicted_scores.csv
 will be:
 ```js
 tcr,hla_allele,score
-"TRBV9*01,CASSEGQKETQYF",HLA-A*03:01,0.4157688757404685
-"TRBV5-1*01,CASSLVGVTDTQYF",HLA-B*07:02,0.22036239174194633
-"TRBV27*01,CASSSGTSGNNEQFF",HLA-B*27:05,0.9526761054992676
-"TRBV7-9*01,CASSLGSSYEQYF",HLA-A*24:02,0.05243651164928451
-"TRBV5-1*01,CASSLATEGDTQYF",HLA-B*08:01,0.46503124982118604
-"TRBV5-8*01,CASSLGRENSPLHF",HLA-B*08:01,0.452142021805048
+"TRBV9*01,CASSEGQKETQYF",HLA-A*03:01,0.27827388704754413
+"TRBV5-1*01,CASSLVGVTDTQYF",HLA-B*07:02,0.1244928405387327
+"TRBV27*01,CASSSGTSGNNEQFF",HLA-B*27:05,0.9632433295249939
+"TRBV7-9*01,CASSLGSSYEQYF",HLA-A*24:02,0.0391123797075124
+"TRBV5-1*01,CASSLATEGDTQYF",HLA-B*08:01,0.3890836928039789
+"TRBV5-8*01,CASSLGRENSPLHF",HLA-B*08:01,0.2891890250146389
 ```
 
 
@@ -366,3 +373,30 @@ DePTH predict --test_file test_HLA_I_pairs.csv \
 The output file of prediction scores will follow the same format as
 in the case of getting prediction from default models, except that the scores
 will be based on one single model instead.
+
+## Get prediction from legacy DePTH 1.0 default models
+
+DePTH 1.0 default models are kept as legacy.  They can be loaded to make predictions
+by additionally specifying the option:
+```js
+--default_model legacy
+```
+under the same file format requirements as illustrated
+for the case of using DePTH 2.0 default models to make predictions. The full example
+command lines are as shown below:
+
+Example command line for HLA_I:
+```js
+DePTH predict --test_file test_HLA_I_pairs.csv \
+              --hla_class HLA_I \
+              --default_model legacy \
+              --output_dir test_HLA_I_output
+```
+
+Example command line for HLA_II:
+```js
+DePTH predict --test_file test_HLA_II_pairs.csv \
+              --hla_class HLA_II \
+              --default_model legacy \
+              --output_dir test_HLA_II_output
+```
