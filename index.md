@@ -327,7 +327,7 @@ zsh: no matches found: [64,16]
 from Mac are the same as those in the case of training a new model.
 
 The output will be a csv file average_validation_auc_roc.csv under the specified
-directory for average_valid_dir, with content in the format below:
+directory for average_valid_dir, and the content format similar to this one below:
 ```js
 average_valid_auc
 0.7897524952888488
