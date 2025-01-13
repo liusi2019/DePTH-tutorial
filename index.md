@@ -6,13 +6,13 @@ layout: default
 
 ## DePTH Tutorial
 
-**DePTH 2.0 Authors:** Fumin Li (lifm6@uw.edu), University of Washington, Si Liu (sliu3@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
-
 **DePTH 1.0 Authors:** Si Liu (sliu3@fredhutch.org), Philip Bradley (pbradley@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
+
+**DePTH 2.0 Authors:** Fumin Li (lifm6@uw.edu), University of Washington, Si Liu (sliu3@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
 
 **Maintainer:** Si Liu (sliu3@fredhutch.org)
 
-**Latest revision:** 01/09/2025
+**Latest revision:** 01/13/2025
 
 ## Introduction
 
