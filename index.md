@@ -12,7 +12,7 @@ layout: default
 
 **Maintainer:** Si Liu (sliu3@fredhutch.org)
 
-**Latest revision:** 01/13/2025
+**Latest revision:** 06/20/2025
 
 ## Introduction
 
@@ -107,7 +107,7 @@ the path will be created in the process of running DePTH command lines.
 
 #### Format requirement on file of test pairs:
 *   It needs to be a csv file with columns names following the format of
-[example test file](https://github.com/Sun-lab/DePTH_pipeline/blob/main/data/HLA_I_all_match/test/test_pos.csv).
+[example test file](https://github.com/FUminlee/DePTH2-Analysis/blob/main/data/DePTH2.0/HLA_I_all_match/test/Emerson/test_pos.csv).
 
 *   For TCRs, the V gene needs to follow the format of those in
 [V gene file](https://github.com/Sun-lab/DePTH_pipeline/blob/main/data/for_encoders/combo_xcr.tsv)
@@ -145,7 +145,7 @@ specified for output_dir. This file follows the format of the file of test
 pairs, with an additional column providing the prediction scores.
 
 For example, in the case of HLA_I, if the file of test pairs is
-[this one](https://github.com/Sun-lab/DePTH_pipeline/blob/main/data/HLA_I_all_match/test/test_pos.csv),
+[this one](https://github.com/FUminlee/DePTH2-Analysis/blob/main/data/DePTH2.0/HLA_I_all_match/test/Emerson/test_pos.csv),
 the first few lines of this file is:
 ```js
 tcr,hla_allele
@@ -163,7 +163,7 @@ tcr,hla_allele,score
 "TRBV9*01,CASSEGQKETQYF",HLA-A*03:01,0.27827388704754413
 "TRBV5-1*01,CASSLVGVTDTQYF",HLA-B*07:02,0.1244928405387327
 "TRBV27*01,CASSSGTSGNNEQFF",HLA-B*27:05,0.9632433295249939
-"TRBV7-9*01,CASSLGSSYEQYF",HLA-A*24:02,0.0391123797075124
+"TRBV7-9*01,CASSLGSSYEQYF",HLA-A*24:02,0.03911237970751245
 "TRBV5-1*01,CASSLATEGDTQYF",HLA-B*08:01,0.3890836928039789
 "TRBV5-8*01,CASSLGRENSPLHF",HLA-B*08:01,0.2891890250146389
 ```
@@ -172,7 +172,7 @@ tcr,hla_allele,score
 
 ## Train new models
 Alternatively, user can also train new models based on the training and
-validation data files in [this folder for HLA-I ](https://github.com/Sun-lab/DePTH_pipeline/tree/main/data/HLA_I_all_match/train_valid) and [this folder for HLA-II](https://github.com/Sun-lab/DePTH_pipeline/tree/main/data/HLA_II_all_match/train_valid), or new data files.
+validation data files in [this folder for HLA-I ](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_I_all_match/train_valid) and [this folder for HLA-II](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_II_all_match/train_valid), or new data files.
 
 The required inputs are:
 
@@ -183,7 +183,7 @@ are located. The TCR-HLA pairs must be put into four separate csv files with
 filenames "train_pos.csv", "train_neg.csv", "valid_pos.csv" and "valid_neg.csv"
 for positive training pairs, negative training pairs, positive validation pairs
 and negative validation pairs, respectively, like the organization of example
-files shown in [this folder](https://github.com/Sun-lab/DePTH_pipeline/tree/main/data/HLA_I_all_match/train_valid).
+files shown in [this folder](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_I_all_match/train_valid).
 
 *   model_dir, the path to the folder to hold the trained models. Should not
 include ".." as part of the path. If the specified path does not exist, it will
@@ -327,7 +327,7 @@ zsh: no matches found: [64,16]
 from Mac are the same as those in the case of training a new model.
 
 The output will be a csv file average_validation_auc_roc.csv under the specified
-directory for average_valid_dir, and the content format will be similar to this one below:
+directory for average_valid_dir, and the format of the content will be similar to this one below:
 ```js
 average_valid_auc
 0.7897524952888488
