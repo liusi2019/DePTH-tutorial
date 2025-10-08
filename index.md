@@ -8,11 +8,11 @@ layout: default
 
 **DePTH 1.0 Authors:** Si Liu (sliu3@fredhutch.org), Philip Bradley (pbradley@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
 
-**DePTH 2.0 Authors:** Fumin Li (lifm6@uw.edu), University of Washington, Si Liu (sliu3@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
+**DePTH 2.0 and DePTH 2.1 Authors:** Fumin Li (lifm6@uw.edu), University of Washington, Si Liu (sliu3@fredhutch.org), Wei Sun (wsun@fredhutch.org), Fred Hutchinson Cancer Center
 
 **Maintainer:** Si Liu (sliu3@fredhutch.org)
 
-**Latest revision:** 06/20/2025
+**Latest revision:** 10/07/2025
 
 ## Introduction
 
@@ -79,12 +79,16 @@ DePTH predict -h
 DePTH train -h
 DePTH cv -h
 ```
-## Get prediction from DePTH 2.0 default models
+## Get prediction from DePTH 2.1 default models
 
-DePTH default models were updated to DePTH 2.0 on Dec. 27, 2024. The updated
-default models were trained on data sets richer than those used for DePTH 1.0.
-DePTH 1.0 default models are kept as legacy and can be called by command lines
-specified at the end of this tutorial.
+DePTH default models were updated to DePTH 2.1 on Sept. 21, 2025. In default setting, 
+DePTH 2.1 provide the most up-to-date models for both HLA-I and HLA-II. 
+
+DePTH 2.0 is a middle stage between DePTH 1.0 and DePTH 2.1. DePTH 2.0 default models
+were trained on data sets richer than those used for DePTH 1.0, for both HLA-I and HLA-II. 
+Compared with DePTH 2.0, in the case of HLA-I, DePTH 2.1 default models were trained 
+on data sets richer than those used for DePTH 2.0, but in the case of HLA-II, 
+DePTH 2.1 default models are the same as those from DePTH 2.0. 
 
 By default, DePTH provides two sets of models, one for TCR-HLA pairs involving
 HLA-I alleles, and one for those involving HLA-II alleles, respectively. Each
@@ -160,19 +164,19 @@ The first few lines of the output file test_HLA_I_output/predicted_scores.csv
 will be:
 ```js
 tcr,hla_allele,score
-"TRBV9*01,CASSEGQKETQYF",HLA-A*03:01,0.27827388704754413
-"TRBV5-1*01,CASSLVGVTDTQYF",HLA-B*07:02,0.1244928405387327
-"TRBV27*01,CASSSGTSGNNEQFF",HLA-B*27:05,0.9632433295249939
-"TRBV7-9*01,CASSLGSSYEQYF",HLA-A*24:02,0.03911237970751245
-"TRBV5-1*01,CASSLATEGDTQYF",HLA-B*08:01,0.3890836928039789
-"TRBV5-8*01,CASSLGRENSPLHF",HLA-B*08:01,0.2891890250146389
+"TRBV9*01,CASSEGQKETQYF",HLA-A*03:01,0.3526170046068728
+"TRBV5-1*01,CASSLVGVTDTQYF",HLA-B*07:02,0.1339691953500733
+"TRBV27*01,CASSSGTSGNNEQFF",HLA-B*27:05,0.9472084492444992
+"TRBV7-9*01,CASSLGSSYEQYF",HLA-A*24:02,0.02265349843655713
+"TRBV5-1*01,CASSLATEGDTQYF",HLA-B*08:01,0.38285276405513285
+"TRBV5-8*01,CASSLGRENSPLHF",HLA-B*08:01,0.23991051327902824
 ```
 
 
 
 ## Train new models
 Alternatively, user can also train new models based on the training and
-validation data files in [this folder for HLA-I ](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_I_all_match/train_valid) and [this folder for HLA-II](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_II_all_match/train_valid), or new data files.
+validation data files in [this folder for HLA-I ](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.1/HLA_I_all_match/train_valid) and [this folder for HLA-II](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_II_all_match/train_valid), or new data files.
 
 The required inputs are:
 
@@ -183,7 +187,7 @@ are located. The TCR-HLA pairs must be put into four separate csv files with
 filenames "train_pos.csv", "train_neg.csv", "valid_pos.csv" and "valid_neg.csv"
 for positive training pairs, negative training pairs, positive validation pairs
 and negative validation pairs, respectively, like the organization of example
-files shown in [this folder](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.0/HLA_I_all_match/train_valid).
+files shown in [this folder](https://github.com/FUminlee/DePTH2-Analysis/tree/main/data/DePTH2.1/HLA_I_all_match/train_valid).
 
 *   model_dir, the path to the folder to hold the trained models. Should not
 include ".." as part of the path. If the specified path does not exist, it will
@@ -374,22 +378,42 @@ The output file of prediction scores will follow the same format as
 in the case of getting prediction from default models, except that the scores
 will be based on one single model instead.
 
-## Get prediction from legacy DePTH 1.0 default models
+## Get prediction from legacy DePTH 2.0 and DePTH 1.0 default models
 
-DePTH 1.0 default models are kept as legacy.  They can be loaded to make predictions
+DePTH 2.0 and DePTH 1.0 default models are kept as legacy.  They can be loaded to make predictions
 by additionally specifying the option:
+
+for DePTH 2.0 models:
+
+```js
+--default_model legacy2.0
+```
+
+for DePTH 1.0 models:
+
+```js
+--default_model legacy1.0
+```
+
+or 
+
 ```js
 --default_model legacy
 ```
+
 under the same file format requirements as illustrated
-for the case of using DePTH 2.0 default models to make predictions. The full example
-command lines are as shown below:
+for the case of using DePTH 2.1 default models to make predictions.
+
+For the consideration of backward compatibility, specifying "legacy1.0" or "legacy" both give models from DePTH 1.0.
+
+
+The full example command lines are as shown below (for DePTH 1.0 legacy models):
 
 Example command line for HLA_I:
 ```js
 DePTH predict --test_file test_HLA_I_pairs.csv \
               --hla_class HLA_I \
-              --default_model legacy \
+              --default_model legacy1.0 \
               --output_dir test_HLA_I_output
 ```
 
@@ -397,6 +421,17 @@ Example command line for HLA_II:
 ```js
 DePTH predict --test_file test_HLA_II_pairs.csv \
               --hla_class HLA_II \
-              --default_model legacy \
+              --default_model legacy1.0 \
               --output_dir test_HLA_II_output
 ```
+
+Compared with DePTH 2.0, DePTH 2.1 only updates the default models for HLA-I, 
+and the default models for HLA-II under DePTH 2.1 are the same as those from DePTH 2.0.
+This means, in the case of HLA-II, specifying:
+
+```js
+--default_model legacy2.0
+```
+
+gives the same prediction results as using the default approach (not specifying default_model).
+
